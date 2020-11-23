@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Guess the number</title>
+	<style>
+		body{
+			background-attachment: fixed;
+        	background-image: url(images/1.jpg);
+        	animation: a1 15s linear infinite;				
+		}
+		@keyframes a1{
+			0%{
+            background-position: 0 0;
+        	}
+        	100%{
+            background-position: 500px 500px;
+        	}
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+			var r = parseInt(Math.random()*100);
+			do {
+				var input = prompt("Please guess and type in a number between 0 and 100, or type in 'e' to end the game.");
+				if (input == "e") {
+					alert("GAME OVER");
+				} else if (input > r) {
+					alert("Your number is bigger. Please guess another one and type in.");
+				} else if (input < r) {
+					alert("Your number is smaller. Please guess another one and type in.");
+				} else {
+					alert("Congratulations! You have gotten it right!");
+				}
+			} while (input != "e" && input != r);				
+	</script>
+</body>
+</html>

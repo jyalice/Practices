@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#code{
+			width: 100px;
+			height: 50px;
+			background-color: lightblue;
+			font-size: 44px;
+			letter-spacing: 5px;
+			display: inline-block;
+			margin: 5px;
+			vertical-align: middle;
+		}
+		#typing{
+			width: 100px;
+		}
+		#submitting{
+			width: 140px;
+		}
+	</style>
+</head>
+<body>
+	<div id="code"></div>
+	<button onclick = createRandCode()>new verification code</button>
+	<br>
+	<input type="text" placeholder="verification code" id="typing">
+	<input type="submit" value="submit" onclick=checkCode() id="submitting">
+	<script>
+		function createRandCode() {
+			var chars=["a", "b", "c", 1, 2, 3, 4, 5, 6, 7];
+			var randCode="";
+			for (var i = 0; i < 3; i++) {
+				var randPos = Math.floor(Math.random()*(chars.length));
+				randCode += chars[randPos];
+			}
+			document.getElementById("code").innerHTML = randCode;
+		}
+		createRandCode();
+		function checkCode() {
+			var v1 = document.querySelector('input').value;
+			var v2 = document.getElementById("code").innerHTML;
+			if (v1 == v2) {
+				alert('Authentication passed!');
+			} else {
+				alert('Authentication failed!');
+			}
+		}
+	</script>	
+</body>
+</html>
